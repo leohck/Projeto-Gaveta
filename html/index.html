@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Firebase Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+
+<body>
+    <div id="login_div" class="main-div">
+        <h3>Painel Admin</h3>
+        <input type="email" placeholder="Email..." id="email_field"/>
+        <input type="password" placeholder="Senha..." id="password_field"/>
+        <button id="bt_login" onclick="login()">Login</button>
+    </div>
+
+    <div id="user_div" class="loggedin-div">
+        <h3>Bem vindo</h3>
+        <p id="user_para"></p>
+        <table style="width:100%">
+            <tr>
+                <th>
+                    <button id="bt_newuser">Cadastrar Usuário</button>
+                </th>
+
+                <th>
+                    <button id="bt_painel_gavetas">Painel Gavetas</button>
+                </th>
+
+                <th>
+                    <button id="bt_listarUsuarios">Listar usuários</button>
+                </th>
+
+                <th>
+                    <button onclick="logout()">Logout</button>
+                </th>
+            </tr>
+        </table>
+    </div>
+
+
+    <script>
+        document.getElementById("bt_newuser").onclick = function () {
+            location.href = "cadastrarUsuario.html";
+        };
+
+        document.getElementById("bt_painel_gavetas").onclick = function () {
+            location.href = "painelGavetas.html";
+        };
+
+        document.getElementById("bt_listarUsuarios").onclick = function () {
+            location.href = "listarUsuarios.html";
+        };
+    </script>
+
+    <!Press enter event->
+    <script>
+        // Get the input field
+        let input = document.getElementById("password_field");
+        // Execute a function when the user releases a key on the keyboard
+        input.addEventListener("keyup", function (event) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Number 13 is the "Enter" key on the keyboard
+            if (event.keyCode === 13) {
+                // Trigger the button element with a click
+                login();
+            }
+        });
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+    <!--<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-auth.js"></script>-->
+    <script>
+        // Initialize Firebase
+        let config = {
+            apiKey: "AIzaSyDbQtSNl5TGTRL8Y5Y6qM5Io710xFwd-Gw",
+            authDomain: "fir-web-login-10d9a.firebaseapp.com",
+            databaseURL: "https://fir-web-login-10d9a.firebaseio.com",
+            projectId: "fir-web-login-10d9a",
+            storageBucket: "fir-web-login-10d9a.appspot.com",
+            messagingSenderId: "852898408084"
+        };
+        firebase.initializeApp(config);
+
+    </script>
+    <script src="js/index.js"></script>
+
+</body>
+</html>

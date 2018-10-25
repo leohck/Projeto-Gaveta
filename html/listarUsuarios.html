@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>Listar Usuários</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<!--<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>-->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/listar.css">
+<!--===============================================================================================-->
+</head>
+<body>
+<h1 align="center">Usuários cadastrados </h1>
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver3 m-b-110">
+					<div class="table100-head">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Nome</th>
+									<th class="cell100 column2">Login</th>
+									<th class="cell100 column3">Senha</th>
+									<th class="cell100 column4">Ação</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+
+					<div class="table100-body js-pscroll">
+						<table id="usersTable">
+							<tbody>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<!--===============================================================================================-->	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			let ps = new PerfectScrollbar(this);
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+			
+		
+	</script>
+<!--===============================================================================================-->
+	<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+	<!--<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-database.js"></script>-->
+	<script>
+        // Initialize Firebase
+        let config = {
+            apiKey: "AIzaSyDbQtSNl5TGTRL8Y5Y6qM5Io710xFwd-Gw",
+            authDomain: "fir-web-login-10d9a.firebaseapp.com",
+            databaseURL: "https://fir-web-login-10d9a.firebaseio.com",
+            projectId: "fir-web-login-10d9a",
+            storageBucket: "fir-web-login-10d9a.appspot.com",
+            messagingSenderId: "852898408084"
+        };
+        firebase.initializeApp(config);
+	</script>
+
+
+	<script src="js/listarUsuarios.js"></script>
+
+</body>
+</html>

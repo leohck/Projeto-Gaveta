@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Delegar permissões</title>
+    <link rel="stylesheet" href="css/delegarPermissoes.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+</head>
+<body>
+
+    <h1 align="center">Delegar Permissões</h1>
+    <h2 id="gaveta_num" align="center">Gaveta 1</h2>
+    <p id="p_input">
+        Adicionar usuário:
+        <input id="perm_new_user_input" type="text" placeholder="login..." maxlength="4" onkeypress="validate(event)">
+        <button id="perm_new_user_bt" onclick="permitir_usuario()">Adicionar</button>
+    </p>
+    <div class="permissoes">
+        <h2>Usuários permitidos</h2>
+        <table id="perm_users_table">
+            <thead>
+                <tr>
+                    <td>Nome</td>
+                    <td>Login</td>
+                    <td>Ação</td>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script>
+        // Get the input field
+        let input = document.getElementById("perm_new_user_input");
+        // Execute a function when the user releases a key on the keyboard
+        input.addEventListener("keyup", function (event) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Number 13 is the "Enter" key on the keyboard
+            if (event.keyCode === 13) {
+                // Trigger the button element with a click
+                permitir_usuario();
+            }
+        });
+    </script>
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+    <!--<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-auth.js"></script>-->
+    <script>
+        // Initialize Firebase
+        let config = {
+            apiKey: "AIzaSyDbQtSNl5TGTRL8Y5Y6qM5Io710xFwd-Gw",
+            authDomain: "fir-web-login-10d9a.firebaseapp.com",
+            databaseURL: "https://fir-web-login-10d9a.firebaseio.com",
+            projectId: "fir-web-login-10d9a",
+            storageBucket: "fir-web-login-10d9a.appspot.com",
+            messagingSenderId: "852898408084"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="js/delegarPermissoes.js"></script>
+</body>
+</html>

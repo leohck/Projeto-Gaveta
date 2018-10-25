@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel Gavetas</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/painelGavetas.css"/>
+</head>
+<body>
+
+<div class="painel">
+    <h1> Controle de Gavetas</h1>
+    <table id="gavetas_table">
+        <tr>
+            <td class="column1">
+                <b>Gaveta 1</b>
+                <p id="status1"></p>
+                <button class="abrir_bt" onclick="setState(1, false)">DESTRANCAR</button>
+                <button class="fechar_bt" onclick="setState(1, true)">TRANCAR</button>
+                <button class="delegar_bt" onclick="changePage(1)">Usuários Permitidos</button>
+            </td>
+
+            <td class="column2">
+                <b>Gaveta 2</b>
+                <p id="status2"></p>
+                <button class="abrir_bt" onclick="setState(2, false)">DESTRANCAR</button>
+                <button class="fechar_bt" onclick="setState(2, true)">TRANCAR</button>
+                <button class="delegar_bt" onclick="changePage(2)">Usuários Permitidos</button>
+            </td>
+
+            <td class="column3">
+                <b>Gaveta 3</b>
+                <p id="status3"></p>
+                <button class="abrir_bt" onclick="setState(3, false)">DESTRANCAR</button>
+                <button class="fechar_bt" onclick="setState(3, true)">TRANCAR</button>
+                <button class="delegar_bt" onclick="changePage(3)">Usuários Permitidos</button>
+            </td>
+
+            <td class="column4">
+                <b>Gaveta 4</b>
+                <p id="status4"></p>
+                <button class="abrir_bt" onclick="setState(4, false)">DESTRANCAR</button>
+                <button class="fechar_bt" onclick="setState(4, true)">TRANCAR</button>
+                <button class="delegar_bt" onclick="changePage(4)">Usuários Permitidos</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+<!--<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-auth.js"></script>-->
+<script>
+    // Initialize Firebase
+    let config = {
+        apiKey: "AIzaSyDbQtSNl5TGTRL8Y5Y6qM5Io710xFwd-Gw",
+        authDomain: "fir-web-login-10d9a.firebaseapp.com",
+        databaseURL: "https://fir-web-login-10d9a.firebaseio.com",
+        projectId: "fir-web-login-10d9a",
+        storageBucket: "fir-web-login-10d9a.appspot.com",
+        messagingSenderId: "852898408084"
+    };
+    firebase.initializeApp(config);
+
+</script>
+<script src="js/painelGavetas.js"></script>
+</body>
+</html>

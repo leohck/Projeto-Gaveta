@@ -1,0 +1,35 @@
+FIREBASE
+
+adicionar config no projeto
+
+pegar url do projeto:  projeto.firebaseio.com
+
+caso for usar database: pegar tambem a chave de banco de acesso ao banco: 
+configurações/configuração do projeto/contas de serviço/chaves secretas do banco de dados
+
+
+gravar dados database
+
+função set()
+function writeUserData(userId, name, email, imageUrl) {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email,
+    profile_picture : imageUrl
+  });
+}
+
+
+ler dados database
+
+função on() ou once()
+val() retorna o valor lido
+
+
+return firebase.database().ref(users).once('value').then(function(snapshot) {
+  var username = snapshot.val() ;
+});
+
+
+mudar a cor texto html via javascript
+document.getElementById(id).style.color = "blue";

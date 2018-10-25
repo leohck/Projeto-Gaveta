@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Alterar dados</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div id="alteruser_div" class="alteruser-div">
+    <h3>Alterar Dados de Usuário</h3>
+    Login do Usuário:
+    <input type="text" placeholder="Login a ser pesquisado..." id="search_login_field" maxlength="4" onkeypress='validate(event)'>
+    <button onclick="pesquisar()">Pesquisar Usuário</button>
+
+    Nome: 3~10 letras<input type="text" placeholder="Nome..." id="searcheduser_name_field" maxlength="10" required>
+    Login: 4 numeros<input type="text" placeholder="Login..." id="searcheduser_login_field" maxlength="4" onkeypress='validate(event)'>
+    Senha: 4 numeros<input type="password" placeholder="Senha..." id="searcheduser_password_field" maxlength="4" onkeypress='validate(event)'>
+    <table>
+        <tr>
+            <td><button onclick="salvar()">Salvar</button></td>
+            <td><td><button onclick="limpar()">Limpar</button></td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    // Get the input field
+    let input = document.getElementById("search_login_field");
+    // Execute a function when the user releases a key on the keyboard
+    input.addEventListener("keyup", function (event) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode === 13) {
+            // Trigger the button element with a click
+            pesquisar();
+        }
+    });
+</script>
+<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+<!--<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-database.js"></script>-->
+
+<script>
+    // Initialize Firebase
+    let config = {
+        apiKey: "AIzaSyDbQtSNl5TGTRL8Y5Y6qM5Io710xFwd-Gw",
+        authDomain: "fir-web-login-10d9a.firebaseapp.com",
+        databaseURL: "https://fir-web-login-10d9a.firebaseio.com",
+        projectId: "fir-web-login-10d9a",
+        storageBucket: "fir-web-login-10d9a.appspot.com",
+        messagingSenderId: "852898408084"
+    };
+    firebase.initializeApp(config);
+</script>
+
+<script src="js/alterarDados.js"></script>
+</body>
+</html>
